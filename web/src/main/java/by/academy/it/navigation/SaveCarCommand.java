@@ -24,6 +24,6 @@ public class SaveCarCommand implements Command {
         Car car = new Car(brand, model, year, color, fuelType, bodyStyle, price, description, photo);
         CarService carService = new CarService();
         carService.addCar(car);
-        return PAGE_INDEX;
+        return PAGE_ADMIN_PAGE;
     }
 }

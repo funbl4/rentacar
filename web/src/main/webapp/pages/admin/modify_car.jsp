@@ -37,22 +37,23 @@
 
         <div>
             <form action="Controller" method="get">
-                <input type="hidden" name="page" value="save_car">
+                <input type="hidden" name="page" value="update_car">
+                <input type="hidden" name="idCar" value="${requestScope.car.idCar}">
                 <table>
                     <tr>
-                        <td>Brand: <input type="text" name="brand"></td>
+                        <td>Brand: <input type="text" name="brand" value="${requestScope.car.brand}"></td>
                     </tr>
                     <tr>
-                        <td>Model: <input type="text" name="model"></td>
+                        <td>Model: <input type="text" name="model" value="${requestScope.car.model}"></td>
                     </tr>
                     <tr>
-                        <td>Year: <input type="text" name="year"></td>
+                        <td>Year: <input type="text" name="year" value="${requestScope.car.year}"></td>
                     </tr>
                     <tr>
-                        <td>Color: <input type="text" name="color"></td>
+                        <td>Color: <input type="text" name="color" value="${requestScope.car.color}"></td>
                     </tr>
                     <tr>
-                        <td>Fuel type: <input type="text" name="fuelType"></td>
+                        <td>Fuel type: <input type="text" name="fuelType" value="${requestScope.car.fuelType}"></td>
                     </tr>
                     <tr>
                         <td>Body style:
@@ -64,16 +65,16 @@
                         </td>
                     </tr>
                     <tr>
-                        <td>Price: <input type="text" name="price"></td>
+                        <td>Price: <input type="text" name="price" value="${requestScope.car.price}"></td>
                     </tr>
                     <tr>
-                        <td>Description: <input type="text" name="description"></td>
+                        <td>Description: <input type="text" name="description" value="${requestScope.car.description}"></td>
                     </tr>
                     <tr>
-                        <td>Photo: <input type="text" name="photo"></td>
+                        <td>Photo: <input type="text" name="photo" value="${requestScope.car.photo}"></td>
                     </tr>
                     <tr>
-                        <td><input type="submit" name="Save"></td>
+                        <td><input type="submit" value="Update"></td>
                     </tr>
                 </table>
             </form>

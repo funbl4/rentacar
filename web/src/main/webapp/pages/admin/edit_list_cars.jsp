@@ -29,14 +29,13 @@
 <div id="body2">
     <!--left start -->
     <div id="left">
-        <%@ include file="/pages/include/user_menu.jsp" %>
+        <%@ include file="/pages/include/admin_menu.jsp" %>
     </div>
     <div id="right">
         <h2 class="lp">Our cars</h2>
         <br class="spacer"/>
 
         <div>
-            <c:forEach var="cars" items="${cars}">
                 <div>
                     <table border="1" width="630">
                         <tr>
@@ -48,15 +47,14 @@
                         <c:forEach var="cars" items="${cars}">
                             <tr>
                                 <td width="240" height="180">${cars.photo}}</td>
-                                <td>${cars.brand} ${cars.model} ${cars.price}</td>
-                                <td><a href="#">Edit</a></td>
+                                <td><a href="/Controller?page=GET_CAR&idCar=<c:out value="${cars.idCar}"/>">${cars.brand} ${cars.model} ${cars.price}</a></td>
+                                <td><a href="/Controller?page=MODIFY_CAR&idCar=<c:out value="${cars.idCar}"/>">Edit</a></td>
                                 <td><a href="#">Delete</a></td>
                             </tr>
                         </c:forEach>
                     </table>
                 </div>
                 <br>
-            </c:forEach>
         </div>
     </div>
     <!--right end -->
@@ -66,23 +64,6 @@
 <!--footer start -->
 <div id="footer">
     <p class="copy">Copyright © Markovich. All Rights Reserved.</p>
-    <%--<ul class="botLink">
-         <li><a href="#">Home</a>|</li>
-         <li><a href="#">About&nbsp;us</a>|</li>
-         <li><a href="#">Support</a>|</li>
-         <li><a href="#">Solutions </a>|</li>
-         <li><a href="#">Targets</a>|</li>
-         <li><a href="#">Signup</a>|</li>
-         <li><a href="#">Meetings</a>|</li>
-         <li><a href="#">News</a>|</li>
-         <li><a href="#">Blog</a>|</li>
-          <li><a href="#">Contact</a></li>
-     </ul>
-    <ul class="botLink2">
-            <li><a href="http://jigsaw.w3.org/css-validator/check/referer" class="css"></a></li>
-        <li><a href="http://validator.w3.org/check?uri=referer" class="xhtml"></a></li>
-    </ul>
-    <p class="design">Designed By : <a href="http://www.templateworld.com/">Template World</a></p>--%>
 </div>
 <!--footer end -->
 </body>

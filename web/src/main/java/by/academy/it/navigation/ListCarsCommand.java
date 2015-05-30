@@ -28,9 +28,11 @@ public class ListCarsCommand implements Command {
                 requestDispatcher.forward(request, response);
                 return PAGE_LIST_CARS;
             } else if (userRole.equals(ADMIN.toString().toUpperCase())) {
-                RequestDispatcher requestDispatcher = request.getRequestDispatcher("/pages/admin/edit_list_cars.jsp");
+                RequestDispatcher requestDispatcher = request.getRequestDispatcher(PAGE_ADMIN_LIST_CARS);
                 requestDispatcher.forward(request, response);
-                return "/pages/admin/edit_list_cars.jsp";
+               /* RequestDispatcher requestDispatcher = request.getRequestDispatcher("/pages/admin/edit_list_cars.jsp");
+                requestDispatcher.forward(request, response)*/;
+                return PAGE_ADMIN_LIST_CARS;
             }
         }catch (NullPointerException e){
             return PAGE_LIST_CARS;

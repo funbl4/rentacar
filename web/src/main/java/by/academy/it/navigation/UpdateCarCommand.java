@@ -24,6 +24,6 @@ public class UpdateCarCommand implements Command {
         Car car = new Car(idCar, brand, model, year, color, fuelType, bodyStyle, price, description, photo);
         CarService carService = new CarService();
         carService.updateCar(car);
-        return PAGE_INDEX;
+        return PAGE_ADMIN_PAGE;
     }
 }
