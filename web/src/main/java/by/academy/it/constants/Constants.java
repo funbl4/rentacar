@@ -2,7 +2,6 @@ package by.academy.it.constants;
 
 public class Constants {
     public static final String PAGE_INDEX = "/index.jsp";
-    public static final String PAGE_ADD_USER = "/pages/addUser.jsp";
     public static final String PAGE_LIST_USERS = "/pages/listUsers.jsp";
     public static final String PAGE_ADD_CAR = "/pages/admin/add_car.jsp";
     public static final String PAGE_LIST_CARS = "/pages/list_cars.jsp";
