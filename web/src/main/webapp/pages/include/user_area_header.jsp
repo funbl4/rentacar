@@ -4,6 +4,7 @@
     String lastName = (String) session.getAttribute("userLastName");
     String firstName = (String) session.getAttribute("userFirstName");
     String userID = (String) session.getAttribute("userID");
+    String userRole = (String) session.getAttribute("userRole");
     String uiFooter;
     if (session.getAttribute("userID") != null) {
         uiFooter = "        <form name=\"f1\">\n" +
@@ -11,11 +12,11 @@
                 "            <br>" +
                 "            <a href=\"/Controller?page=LIST_USER_ORDERS&userID=" + userID + "\">My orders</a>\n" +
                 "            <br>" +
-                "            <a href=\"/Controller?page=LOGOUT_USER\">Logout</a>" +
+                "            <a href=\"/Controller?page=LOGOUT\">Logout</a>" +
                 "        </form>";
     } else {
         uiFooter = "        <form name=\"f1\" action=\"/Controller\" method=\"post\">\n" +
-                "            <input type=\"hidden\" name=\"page\" value=\"login_user\">\n" +
+                "            <input type=\"hidden\" name=\"page\" value=\"login\">\n" +
                 "            <label class=\"formTxt\">Enter Your Email</label>\n" +
                 "            <input type=\"text\" required name=\"login\" value=\"\" class=\"txtBox1\"/>\n" +
                 "            <label class=\"formTxt\">Enter Your Password</label>\n" +
@@ -28,4 +29,5 @@
 <%=lastName%>
 <%=firstName%>
 <%=userID%>
+<%=userRole%>
 <%=uiFooter%>

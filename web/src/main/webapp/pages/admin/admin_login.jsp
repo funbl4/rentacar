@@ -11,7 +11,7 @@
 	<fieldset>
   <legend>Sign in</legend>
   <form action="/Controller" method="get">
-    <input type="hidden" name="page" value="login_admin">
+    <input type="hidden" name="page" value="login">
     <table>
       <tr>
         <td>

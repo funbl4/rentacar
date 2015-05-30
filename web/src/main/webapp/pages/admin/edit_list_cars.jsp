@@ -29,14 +29,34 @@
 <div id="body2">
     <!--left start -->
     <div id="left">
-        <%@ include file="/pages/include/admin_menu.jsp" %>
+        <%@ include file="/pages/include/user_menu.jsp" %>
     </div>
     <div id="right">
-        <h2 class="lp">Admin page</h2>
+        <h2 class="lp">Our cars</h2>
         <br class="spacer"/>
 
         <div>
-            <div id="innercontent" align="justify"><p>Пока сильна Java, будет развиваться и C#. ©</p>            </div>
+            <c:forEach var="cars" items="${cars}">
+                <div>
+                    <table border="1" width="630">
+                        <tr>
+                            <th>Photo</th>
+                            <th>Brand/Model/Price</th>
+                            <th></th>
+                            <th></th>
+                        </tr>
+                        <c:forEach var="cars" items="${cars}">
+                            <tr>
+                                <td width="240" height="180">${cars.photo}}</td>
+                                <td>${cars.brand} ${cars.model} ${cars.price}</td>
+                                <td><a href="#">Edit</a></td>
+                                <td><a href="#">Delete</a></td>
+                            </tr>
+                        </c:forEach>
+                    </table>
+                </div>
+                <br>
+            </c:forEach>
         </div>
     </div>
     <!--right end -->

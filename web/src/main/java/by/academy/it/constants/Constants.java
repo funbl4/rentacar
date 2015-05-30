@@ -12,7 +12,8 @@ public class Constants {
     public static final String PAGE_USER_ORDERS = "/pages/user_orders.jsp";
     public static final String PAGE_AUTO_SWITCH = "/pages/auto_switch.jsp";
 
-    public static final String PAGE_LOGIN = "/pages/admin/admin_login.jsp";
+    public static final String PAGE_ADMIN_LOGIN = "/pages/admin/admin_login.jsp";
+    public static final String PAGE_ADMIN_PAGE = "/pages/admin/admin_page.jsp";
 
     public static final String PARAM_BODY_STYLES = "bodyStyles";
     public static final String PARAM_CARS = "cars";
@@ -38,6 +39,7 @@ public class Constants {
     public static final String PARAM_DESCRIPTION = "description";
     public static final String PARAM_PHOTO = "photo";
     public static final String PARAM_USER_ID = "userID";
+
 
 
 }

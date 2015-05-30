@@ -29,7 +29,7 @@
 <div id="body2">
     <!--left start -->
     <div id="left">
-        <%@ include file="/pages/include/admin_menu.jsp" %>
+        <%@ include file="/pages/include/user_menu.jsp" %>
     </div>
     <div id="right">
         <h2 class="lp">Admin page</h2>

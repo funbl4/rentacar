@@ -105,16 +105,16 @@ public enum Commands {
             return new GetUserCommand();
         }
     },
-    LOGIN_USER {
+    LOGIN {
         @Override
         public Command getCommand() {
-            return new LoginUserCommand();
+            return new LoginCommand();
         }
     },
-    LOGOUT_USER {
+    LOGOUT {
         @Override
         public Command getCommand() {
-            return new LogoutUserCommand();
+            return new LogoutCommand();
         }
     };
 
