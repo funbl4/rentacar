@@ -9,12 +9,6 @@ public enum Commands {
             return new RegistrationCommand();
         }
     },
-    ADD_USER {
-        @Override
-        public Command getCommand() {
-            return new AddUserCommand();
-        }
-    },
     LIST_USERS {
         @Override
         public Command getCommand() {
