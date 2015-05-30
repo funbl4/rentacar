@@ -75,23 +75,6 @@
 <!--footer start -->
 <div id="footer">
     <p class="copy">Copyright © Markovich. All Rights Reserved.</p>
-    <%--<ul class="botLink">
-         <li><a href="#">Home</a>|</li>
-         <li><a href="#">About&nbsp;us</a>|</li>
-         <li><a href="#">Support</a>|</li>
-         <li><a href="#">Solutions </a>|</li>
-         <li><a href="#">Targets</a>|</li>
-         <li><a href="#">Signup</a>|</li>
-         <li><a href="#">Meetings</a>|</li>
-         <li><a href="#">News</a>|</li>
-         <li><a href="#">Blog</a>|</li>
-          <li><a href="#">Contact</a></li>
-     </ul>
-    <ul class="botLink2">
-            <li><a href="http://jigsaw.w3.org/css-validator/check/referer" class="css"></a></li>
-        <li><a href="http://validator.w3.org/check?uri=referer" class="xhtml"></a></li>
-    </ul>
-    <p class="design">Designed By : <a href="http://www.templateworld.com/">Template World</a></p>--%>
 </div>
 <!--footer end -->
 </body>
