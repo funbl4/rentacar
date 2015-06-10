@@ -1,4 +1,4 @@
-package by.academy.it.entity;
+package by.academy.it.pojo;
 
 public enum OrderStatus {
     WAITING, CANCELED, CONFIRMED

@@ -1,29 +1,29 @@
 package by.academy.it.service;
 
 
-import by.academy.it.dao.OrderDAO;
-import by.academy.it.dao.impl.OrdersDAOImpl;
-import by.academy.it.entity.Order;
+import by.academy.it.dao.IOrderDAO;
+import by.academy.it.dao.impl.OrdersDAOImplI;
+import by.academy.it.pojo.Order;
 
 import java.util.List;
 
 public class OrderService {
 
-    private OrderDAO orderDAO;
+    private IOrderDAO IOrderDAO;
 
     public OrderService() {
-        orderDAO = new OrdersDAOImpl();
+        IOrderDAO = new OrdersDAOImplI();
     }
 
     public void addOrder(Order order) {
-        orderDAO.addOrder(order);
+        IOrderDAO.addOrder(order);
     }
 
     public List<Order> getOrders() {
-        return orderDAO.getOrders();
+        return IOrderDAO.getOrders();
     }
 
     public List<Order> getOrdersByUser(Integer idUser) {
-        return orderDAO.getOrdersByUser(idUser);
+        return IOrderDAO.getOrdersByUser(idUser);
     }
 }

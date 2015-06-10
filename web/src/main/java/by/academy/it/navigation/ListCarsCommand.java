@@ -1,6 +1,6 @@
 package by.academy.it.navigation;
 
-import by.academy.it.entity.Car;
+import by.academy.it.pojo.Car;
 import by.academy.it.navigation.commands.Command;
 import by.academy.it.service.CarService;
 
@@ -12,8 +12,8 @@ import java.io.IOException;
 import java.util.List;
 
 import static by.academy.it.constants.Constants.*;
-import static by.academy.it.entity.Role.ADMIN;
-import static by.academy.it.entity.Role.USER;
+import static by.academy.it.pojo.Role.ADMIN;
+import static by.academy.it.pojo.Role.USER;
 
 public class ListCarsCommand implements Command {
 

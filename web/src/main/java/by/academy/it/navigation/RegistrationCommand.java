@@ -1,6 +1,6 @@
 package by.academy.it.navigation;
 
-import by.academy.it.entity.User;
+import by.academy.it.pojo.User;
 import by.academy.it.navigation.commands.Command;
 import by.academy.it.service.UserService;
 

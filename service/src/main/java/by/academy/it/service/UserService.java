@@ -1,37 +1,37 @@
 package by.academy.it.service;
 
-import by.academy.it.dao.UserDAO;
+import by.academy.it.dao.IUserDAO;
 import by.academy.it.dao.impl.UserDAOImpl;
-import by.academy.it.entity.User;
+import by.academy.it.pojo.User;
 
 import java.util.List;
 
 public class UserService {
 
-    private UserDAO userDAO;
+    private IUserDAO IUserDAO;
 
     public UserService() {
-        userDAO = new UserDAOImpl();
+        IUserDAO = new UserDAOImpl();
     }
 
     public void addUser(User user) {
-        userDAO.addUser(user);
+        IUserDAO.addUser(user);
     }
 
     public List<User> getUsers() {
-        return userDAO.getUsers();
+        return IUserDAO.getUsers();
     }
 
     public User getUserByID(int idUser){
-        return userDAO.getUserByID(idUser);
+        return IUserDAO.getUserByID(idUser);
     }
 
     public User getUserByEmail(String email){
-        return userDAO.getUserByEmail(email);
+        return IUserDAO.getUserByEmail(email);
     }
 
     public boolean loginUser(String login, String password) {
-        return userDAO.loginUser(login, password);
+        return IUserDAO.loginUser(login, password);
     }
 }
 

@@ -1,39 +1,50 @@
 package by.academy.it.service;
 
-import by.academy.it.dao.CarDAO;
-import by.academy.it.dao.impl.CarsDAOImpl;
-import by.academy.it.entity.BodyStyle;
-import by.academy.it.entity.Car;
+import by.academy.it.dao.ICarDAO;
+import by.academy.it.dao.exceptions.DaoException;
+import by.academy.it.dao.impl.CarsDAOImplI;
+import by.academy.it.pojo.BodyStyle;
+import by.academy.it.pojo.Car;
 
+import java.util.Collections;
 import java.util.List;
 
 public class CarService {
 
-    private CarDAO carDAO;
+    private ICarDAO carDAO;
 
     public CarService() {
-        carDAO = new CarsDAOImpl();
+        carDAO = new CarsDAOImplI();
     }
 
     public void addCar(Car car) {
-        carDAO.addCar(car);
+        try {
+            carDAO.saveOrUpdate(car);
+        } catch (DaoException e) {
+            e.printStackTrace();
+        }
     }
 
     public List<Car> getCars() {
-        return carDAO.getCars();
+        try {
+            return carDAO.getAll();
+        } catch (DaoException e) {
+            e.printStackTrace();
+        }
+        return Collections.emptyList();
     }
 
     public Car getCarByID(Integer idCar) {
         return carDAO.getCarByID(idCar);
     }
 
-    public Boolean deleteCar(Integer idCar) {
+/*    public Boolean deleteCar(Integer idCar) {
         return carDAO.deleteCar(idCar);
     }
 
     public void updateCar(Car car) {
         carDAO.updateCar(car);
-    }
+    }*/
 
     public List<BodyStyle> getBodyStyles() {
         return carDAO.getBodyStyles();

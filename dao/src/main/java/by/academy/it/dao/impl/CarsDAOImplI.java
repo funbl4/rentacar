@@ -1,8 +1,8 @@
 package by.academy.it.dao.impl;
 
-import by.academy.it.dao.CarDAO;
-import by.academy.it.entity.BodyStyle;
-import by.academy.it.entity.Car;
+import by.academy.it.dao.ICarDAO;
+import by.academy.it.pojo.BodyStyle;
+import by.academy.it.pojo.Car;
 import by.academy.it.pool.SimpleBasicDataSource;
 import by.academy.it.utils.UtilsDB;
 import org.apache.log4j.Logger;
@@ -14,7 +14,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class CarsDAOImpl implements CarDAO {
+public class CarsDAOImplI extends BaseDAOImpl<Car> implements ICarDAO {
 
     private static final String SQL_QUERY_ADD_CAR = "INSERT INTO cars (brand, model, body_style, fuel_type, year, price, description, photo, color) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
     private static final String SQL_QUERY_GET_ALL_CARS = "SELECT id_car, brand, model, name_body_style, fuel_type, year, price, description, photo, color FROM cars, body_styles WHERE cars.body_style = body_styles.id_body_style";
@@ -24,9 +24,9 @@ public class CarsDAOImpl implements CarDAO {
     private static final String SQL_QUERY_GET_ALL_BODY_STYLE = "SELECT * FROM body_styles";
 
     private SimpleBasicDataSource dataSource;
-    private Logger logger = Logger.getLogger(CarsDAOImpl.class);
+    private Logger logger = Logger.getLogger(CarsDAOImplI.class);
 
-    public CarsDAOImpl() {
+    public CarsDAOImplI() {
         dataSource = SimpleBasicDataSource.getInstance();
     }
 

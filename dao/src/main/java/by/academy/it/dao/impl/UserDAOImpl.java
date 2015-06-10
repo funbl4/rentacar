@@ -1,7 +1,7 @@
 package by.academy.it.dao.impl;
 
-import by.academy.it.dao.UserDAO;
-import by.academy.it.entity.User;
+import by.academy.it.dao.IUserDAO;
+import by.academy.it.pojo.User;
 import by.academy.it.pool.SimpleBasicDataSource;
 import by.academy.it.utils.UtilsDB;
 import org.apache.log4j.Logger;
@@ -13,7 +13,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class UserDAOImpl implements UserDAO {
+public class UserDAOImpl implements IUserDAO {
 
     private static final String SQL_QUERY_ADD_USER = "INSERT INTO users (email, password, user_role, first_name, last_name, passport, phone_number) VALUES (?, ?, ?, ?, ?, ?, ?)";
     private static final String SQL_QUERY_GET_ALL_USERS = "SELECT * FROM users";

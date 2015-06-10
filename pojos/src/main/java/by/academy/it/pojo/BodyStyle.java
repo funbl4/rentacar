@@ -1,4 +1,4 @@
-package by.academy.it.entity;
+package by.academy.it.pojo;
 
 public class BodyStyle {
     private int idBodyStyle;

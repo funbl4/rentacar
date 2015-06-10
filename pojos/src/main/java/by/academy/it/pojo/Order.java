@@ -1,6 +1,8 @@
-package by.academy.it.entity;
+package by.academy.it.pojo;
 
-public class Order extends AbstractEntity {
+import java.io.Serializable;
+
+public class Order implements Serializable {
 
     private static final long serialVersionUID = 724613482989784981L;
 

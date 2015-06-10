@@ -1,7 +1,7 @@
 package by.academy.it.navigation;
 
-import by.academy.it.entity.Role;
-import by.academy.it.entity.User;
+import by.academy.it.pojo.Role;
+import by.academy.it.pojo.User;
 import by.academy.it.navigation.commands.Command;
 import by.academy.it.service.UserService;
 
@@ -14,8 +14,8 @@ import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
 import static by.academy.it.constants.Constants.*;
-import static by.academy.it.entity.Role.ADMIN;
-import static by.academy.it.entity.Role.USER;
+import static by.academy.it.pojo.Role.ADMIN;
+import static by.academy.it.pojo.Role.USER;
 
 public class LoginCommand implements Command {
 

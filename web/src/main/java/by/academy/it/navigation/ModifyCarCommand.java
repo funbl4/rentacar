@@ -1,7 +1,7 @@
 package by.academy.it.navigation;
 
-import by.academy.it.entity.BodyStyle;
-import by.academy.it.entity.Car;
+import by.academy.it.pojo.BodyStyle;
+import by.academy.it.pojo.Car;
 import by.academy.it.navigation.commands.Command;
 import by.academy.it.service.CarService;
 

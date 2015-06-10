@@ -1,7 +1,7 @@
 package by.academy.it.dao.impl;
 
-import by.academy.it.dao.OrderDAO;
-import by.academy.it.entity.Order;
+import by.academy.it.dao.IOrderDAO;
+import by.academy.it.pojo.Order;
 import by.academy.it.pool.SimpleBasicDataSource;
 import by.academy.it.utils.UtilsDB;
 
@@ -12,7 +12,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class OrdersDAOImpl implements OrderDAO {
+public class OrdersDAOImplI implements IOrderDAO {
 
     private static final String SQL_QUERY_ADD_ORDER = "INSERT INTO orders (car, customer, date_order, price, order_status) VALUES (?, ?, ?, ?, ?)";
     private static final String SQL_QUERY_GET_ALL_ORDERS = "SELECT * FROM orders";
@@ -20,7 +20,7 @@ public class OrdersDAOImpl implements OrderDAO {
 
     private SimpleBasicDataSource dataSource;
 
-    public OrdersDAOImpl() {
+    public OrdersDAOImplI() {
         dataSource = SimpleBasicDataSource.getInstance();
     }
 

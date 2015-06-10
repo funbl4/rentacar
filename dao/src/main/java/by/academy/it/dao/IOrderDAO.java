@@ -1,10 +1,10 @@
 package by.academy.it.dao;
 
-import by.academy.it.entity.Order;
+import by.academy.it.pojo.Order;
 
 import java.util.List;
 
-public interface OrderDAO {
+public interface IOrderDAO {
     void addOrder(Order order);
 
     List<Order> getOrders();

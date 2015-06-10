@@ -1,6 +1,8 @@
-package by.academy.it.entity;
+package by.academy.it.pojo;
 
-public class User extends AbstractEntity {
+import java.io.Serializable;
+
+public class User implements Serializable {
 
     private static final long serialVersionUID = 4486621389200138298L;
 

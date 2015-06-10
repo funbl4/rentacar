@@ -1,7 +1,7 @@
 package by.academy.it.navigation;
 
 import by.academy.it.constants.Constants;
-import by.academy.it.entity.Order;
+import by.academy.it.pojo.Order;
 import by.academy.it.navigation.commands.Command;
 import by.academy.it.service.OrderService;
 

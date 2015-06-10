@@ -1,6 +1,6 @@
 package by.academy.it.main;
 
-import by.academy.it.entity.Order;
+import by.academy.it.pojo.Order;
 import by.academy.it.service.OrderService;
 
 public class test {

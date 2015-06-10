@@ -1,6 +1,6 @@
 package by.academy.it.navigation;
 
-import by.academy.it.entity.Car;
+import by.academy.it.pojo.Car;
 import by.academy.it.navigation.commands.Command;
 import by.academy.it.service.CarService;
 
@@ -23,7 +23,7 @@ public class UpdateCarCommand implements Command {
         int idCar = Integer.valueOf(request.getParameter(PARAM_ID_CAR));
         Car car = new Car(idCar, brand, model, year, color, fuelType, bodyStyle, price, description, photo);
         CarService carService = new CarService();
-        carService.updateCar(car);
+        /*carService.updateCar(car);*/
         return PAGE_ADMIN_PAGE;
     }
 }

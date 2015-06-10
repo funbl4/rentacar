@@ -1,10 +1,10 @@
 package by.academy.it.dao;
 
-import by.academy.it.entity.User;
+import by.academy.it.pojo.User;
 
 import java.util.List;
 
-public interface UserDAO {
+public interface IUserDAO {
     void addUser(User user);
 
     List<User> getUsers();
