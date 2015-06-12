@@ -11,7 +11,7 @@ public class Car implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "id")
+    @Column(name = "id_car")
     private int idCar;
     @Column(name = "brand")
     private String brand;
@@ -23,8 +23,9 @@ public class Car implements Serializable {
     private String color;
     @Column(name = "fuel_type")
     private String fuelType;
-    @Column(name = "body_style")
-    private String bodyStyle;
+    /*@OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "body_style")
+    private BodyStyle bodyStyle;*/
     @Column(name = "price")
     private int price;
     @Column(name = "description")
@@ -32,10 +33,13 @@ public class Car implements Serializable {
     @Column(name = "photo")
     private String photo;
 
+    @OneToOne(mappedBy = "car", cascade = CascadeType.ALL)
+    private BodyStyle bodyStyle;
+
 
     public Car() {
     }
-
+/*
     public Car(String brand, String model, String year, String color, String fuelType, String bodyStyle, int price, String description, String photo) {
         this.brand = brand;
         this.model = model;
@@ -59,7 +63,7 @@ public class Car implements Serializable {
         this.price = price;
         this.description = description;
         this.photo = photo;
-    }
+    }*/
 
     public int getIdCar() {
         return idCar;
@@ -85,6 +89,22 @@ public class Car implements Serializable {
         this.model = model;
     }
 
+    public String getYear() {
+        return year;
+    }
+
+    public void setYear(String year) {
+        this.year = year;
+    }
+
+    public String getColor() {
+        return color;
+    }
+
+    public void setColor(String color) {
+        this.color = color;
+    }
+
     public String getFuelType() {
         return fuelType;
     }
@@ -93,21 +113,13 @@ public class Car implements Serializable {
         this.fuelType = fuelType;
     }
 
-    public String getBodyStyle() {
+/*    public String getBodyStyle() {
         return bodyStyle;
     }
 
     public void setBodyStyle(String bodyStyle) {
         this.bodyStyle = bodyStyle;
-    }
-
-    public String getYear() {
-        return year;
-    }
-
-    public void setYear(String year) {
-        this.year = year;
-    }
+    }*/
 
     public int getPrice() {
         return price;
@@ -131,14 +143,6 @@ public class Car implements Serializable {
 
     public void setPhoto(String photo) {
         this.photo = photo;
-    }
-
-    public String getColor() {
-        return color;
-    }
-
-    public void setColor(String color) {
-        this.color = color;
     }
 
     @Override

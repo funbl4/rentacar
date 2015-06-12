@@ -21,9 +21,9 @@ public class SaveCarCommand implements Command {
         int price = Integer.valueOf(request.getParameter(PARAM_PRICE));
         String description = request.getParameter(PARAM_DESCRIPTION);
         String photo = request.getParameter(PARAM_PHOTO);
-        Car car = new Car(brand, model, year, color, fuelType, bodyStyle, price, description, photo);
+        //Car car = new Car(brand, model, year, color, fuelType, bodyStyle, price, description, photo);
         CarService carService = new CarService();
-        carService.addCar(car);
+        //carService.addCar(car);
         return PAGE_ADMIN_PAGE;
     }
 }

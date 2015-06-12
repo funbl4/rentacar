@@ -35,7 +35,13 @@ public class CarService {
     }
 
     public Car getCarByID(Integer idCar) {
-        return carDAO.getCarByID(idCar);
+        try {
+            return carDAO.getCarByID(idCar);
+        } catch (DaoException e) {
+            e.printStackTrace();
+        }
+        return null;
+        /*return carDAO.getCarByID(idCar);*/
     }
 
 /*    public Boolean deleteCar(Integer idCar) {

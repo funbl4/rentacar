@@ -1,5 +1,6 @@
 package by.academy.it.dao;
 
+import by.academy.it.dao.exceptions.DaoException;
 import by.academy.it.pojo.BodyStyle;
 import by.academy.it.pojo.Car;
 
@@ -7,11 +8,9 @@ import java.util.List;
 
 public interface ICarDAO extends IDAO<Car>{
 
-    /*void addCar(Car car);
+    /*void addCar(Car car);*/
 
-    List<Car> getCars();*/
-
-    Car getCarByID(Integer idCar);
+    Car getCarByID(Integer idCar) throws DaoException;
 
     /*boolean deleteCar(Integer idCar);
 

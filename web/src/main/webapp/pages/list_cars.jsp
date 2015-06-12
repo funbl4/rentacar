@@ -43,7 +43,7 @@
                             <th><a href="/Controller?page=GET_CAR&idCar=<c:out value="${cars.idCar}"/>">${cars.brand} ${cars.model} ${cars.year}</a></th>
                         </tr>
                         <tr>
-                            <td><strong>Body style: </strong>${cars.bodyStyle}</td>
+                            <%--<td><strong>Body style: </strong>${cars.bodyStyle}</td>--%>
                         </tr>
                         <tr>
                             <td><strong>Fuel type: </strong>${cars.fuelType}</td>

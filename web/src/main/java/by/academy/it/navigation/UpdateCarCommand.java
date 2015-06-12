@@ -21,9 +21,9 @@ public class UpdateCarCommand implements Command {
         String description = request.getParameter(PARAM_DESCRIPTION);
         String photo = request.getParameter(PARAM_PHOTO);
         int idCar = Integer.valueOf(request.getParameter(PARAM_ID_CAR));
-        Car car = new Car(idCar, brand, model, year, color, fuelType, bodyStyle, price, description, photo);
+        //Car car = new Car(idCar, brand, model, year, color, fuelType, bodyStyle, price, description, photo);
         CarService carService = new CarService();
-        /*carService.updateCar(car);*/
+        //carService.updateCar(car);
         return PAGE_ADMIN_PAGE;
     }
 }
