@@ -1,17 +1,5 @@
 package by.academy.it.main;
 
-import by.academy.it.dao.IBodyStyleDao;
-import by.academy.it.dao.ICarDao;
-import by.academy.it.dao.exceptions.DaoException;
-import by.academy.it.dao.impl.BodyStyleDao;
-import by.academy.it.dao.impl.CarDao;
-import by.academy.it.pojo.BodyStyle;
-import by.academy.it.pojo.Car;
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
-
 public class test {
 
     public static void main(String[] args) {
@@ -23,7 +11,7 @@ public class test {
         } catch (DaoException e) {
             e.printStackTrace();
         }*/
-/*        ICarDao carDao = new CarDao();
+/*        ICarDAO carDao = new CarDAO();
         Car car = new Car();
         car.setBrand("BMW");
         car.setModel("318");
