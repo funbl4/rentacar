@@ -2,6 +2,7 @@ package by.academy.it.pojo;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.List;
 
 @Entity
 @Table(name = "body_styles")
@@ -9,22 +10,24 @@ public class BodyStyle implements Serializable {
 
     private static final long serialVersionUID = 7381059213568659323L;
 
+
     @Id
-    @Column(name = "id_body_style")
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id_body_style", unique = true, nullable = false)
     private int idBodyStyle;
+
     @Column(name = "name_body_style")
     private String nameBodyStyle;
 
-    @OneToOne
-    @PrimaryKeyJoinColumn
-    private Car car;
+
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "bodyStyle", cascade = CascadeType.ALL)
+    public List<Car> carList;
+
 
     public BodyStyle() {
     }
 
-    public BodyStyle(int idBodyStyle, String nameBodyStyle) {
-        this.idBodyStyle = idBodyStyle;
+    public BodyStyle(String nameBodyStyle) {
         this.nameBodyStyle = nameBodyStyle;
     }
 
@@ -43,6 +46,7 @@ public class BodyStyle implements Serializable {
     public void setNameBodyStyle(String nameBodyStyle) {
         this.nameBodyStyle = nameBodyStyle;
     }
+
 
     @Override
     public boolean equals(Object o) {
