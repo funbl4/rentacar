@@ -1,27 +1,24 @@
 package by.academy.it.dao.impl;
 
-import by.academy.it.dao.ICarDAO;
-import by.academy.it.dao.exceptions.DaoException;
-import by.academy.it.pojo.BodyStyle;
+import by.academy.it.dao.ICarDao;
 import by.academy.it.pojo.Car;
-import by.academy.it.pool.SimpleBasicDataSource;
-import by.academy.it.utils.HibernateUtil;
-import by.academy.it.utils.UtilsDB;
 import org.apache.log4j.Logger;
-import org.hibernate.HibernateException;
-import org.hibernate.Query;
-import org.hibernate.Session;
-import org.hibernate.Transaction;
+import org.hibernate.SessionFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.List;
+@Repository
+public class CarDao extends BaseDao<Car> implements ICarDao {
 
-public class CarsDAOImplI extends BaseDAOImpl<Car> implements ICarDAO {
+    private static Logger log = Logger.getLogger(BaseDao.class);
 
+    @Autowired
+    public CarDao(SessionFactory sessionFactory) {
+        super(sessionFactory);
+    }
+}
+
+/*
     private static final String SQL_QUERY_ADD_CAR = "INSERT INTO cars (brand, model, body_style, fuel_type, year, price, description, photo, color) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
     private static final String SQL_QUERY_GET_ALL_CARS = "SELECT id_car, brand, model, name_body_style, fuel_type, year, price, description, photo, color FROM cars, body_styles WHERE cars.body_style = body_styles.id_body_style";
     private static final String SQL_QUERY_GET_CAR_BY_ID = "SELECT id_car, brand, model, name_body_style, fuel_type, year, price, description, photo, color FROM cars, body_styles WHERE cars.body_style = body_styles.id_body_style AND id_car = ?";
@@ -30,14 +27,15 @@ public class CarsDAOImplI extends BaseDAOImpl<Car> implements ICarDAO {
     private static final String SQL_QUERY_GET_ALL_BODY_STYLE = "SELECT * FROM body_styles";
 
     private SimpleBasicDataSource dataSource;
-    private Logger logger = Logger.getLogger(CarsDAOImplI.class);
+    private Logger logger = Logger.getLogger(CarDao.class);
     private Transaction transaction = null;
 
-    public CarsDAOImplI() {
+    public CarDao() {
         dataSource = SimpleBasicDataSource.getInstance();
     }
+*/
 
-    public List<Car> getCars() {
+/*    public List<Car> getCars() {
         Connection connection = null;
         ResultSet resultSet = null;
         PreparedStatement preparedStatement = null;
@@ -53,9 +51,9 @@ public class CarsDAOImplI extends BaseDAOImpl<Car> implements ICarDAO {
             UtilsDB.closeDBConnection(connection, preparedStatement, resultSet);
         }
         return carList;
-    }
+    }*/
 
-    public Car getCarByID(Integer idCar) throws DaoException {
+/*    public Car getCarByID(Integer idCar) throws DaoException {
         try{
             Session session = HibernateUtil.getHibernateUtil().getSession();
             transaction = session.beginTransaction();
@@ -71,7 +69,7 @@ public class CarsDAOImplI extends BaseDAOImpl<Car> implements ICarDAO {
             logger.error("Error flush person - " + e);
             throw new DaoException(e);
         }
-        return null;
+        return null;*/
 /*        Car car = new Car();
         Connection connection = null;
         PreparedStatement preparedStatement = null;
@@ -99,9 +97,8 @@ public class CarsDAOImplI extends BaseDAOImpl<Car> implements ICarDAO {
             UtilsDB.closeDBConnection(connection, preparedStatement, resultSet);
         }
         return car;*/
-    }
 
-    public boolean deleteCar(Integer idCar) {
+/*    public boolean deleteCar(Integer idCar) {
         Connection connection = null;
         PreparedStatement preparedStatement = null;
         boolean flag = false;
@@ -117,9 +114,9 @@ public class CarsDAOImplI extends BaseDAOImpl<Car> implements ICarDAO {
             UtilsDB.closeDBConnection(connection, preparedStatement);
         }
         return flag;
-    }
+    }*/
 
-    public void updateCar(Car car) {
+/*    public void updateCar(Car car) {
         Connection connection = null;
         PreparedStatement preparedStatement = null;
         try {
@@ -141,9 +138,9 @@ public class CarsDAOImplI extends BaseDAOImpl<Car> implements ICarDAO {
         } finally {
             UtilsDB.closeDBConnection(connection, preparedStatement);
         }
-    }
+    }*/
 
-    public List<BodyStyle> getBodyStyles() {
+/*    public List<BodyStyle> getBodyStyles() {
         Connection connection = null;
         ResultSet resultSet = null;
         PreparedStatement preparedStatement = null;
@@ -170,32 +167,33 @@ public class CarsDAOImplI extends BaseDAOImpl<Car> implements ICarDAO {
             bodyStyleList.add(bodyStyle);
         }
         return bodyStyleList;
-    }
+    }*/
 
-    public void addCar(Car car) {
-        Connection connection = null;
-        PreparedStatement preparedStatement = null;
-        try {
-            connection = dataSource.getConnection();
-            preparedStatement = connection.prepareStatement(SQL_QUERY_ADD_CAR);
-            preparedStatement.setString(1, car.getBrand());
-            preparedStatement.setString(2, car.getModel());
-           // preparedStatement.setString(3, car.getBodyStyle());
-            preparedStatement.setString(4, car.getFuelType());
-            preparedStatement.setString(5, car.getYear());
-            preparedStatement.setInt(6, car.getPrice());
-            preparedStatement.setString(7, car.getDescription());
-            preparedStatement.setString(8, car.getPhoto());
-            preparedStatement.setString(9, car.getColor());
-            preparedStatement.executeUpdate();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        } finally {
-            UtilsDB.closeDBConnection(connection, preparedStatement);
-        }
-    }
+//    public void addCar(Car car) {
+//        Connection connection = null;
+//        PreparedStatement preparedStatement = null;
+//        try {
+//            Session session = HibernateUtil.getHibernateUtil().getSession();
+//            session.saveOrUpdate(car);
+////            connection = dataSource.getConnection();
+//
+////            preparedStatement = connection.prepareStatement(SQL_QUERY_ADD_CAR);
+////            preparedStatement.setString(1, car.getBrand());
+////            preparedStatement.setString(2, car.getModel());
+////           // preparedStatement.setString(3, car.getBodyStyle());
+////            preparedStatement.setString(4, car.getFuelType());
+////            preparedStatement.setString(5, car.getYear());
+////            preparedStatement.setInt(6, car.getPrice());
+////            preparedStatement.setString(7, car.getDescription());
+////            preparedStatement.setString(8, car.getPhoto());
+////            preparedStatement.setString(9, car.getColor());
+////            preparedStatement.executeUpdate();
+//        } finally {
+//            UtilsDB.closeDBConnection(connection, preparedStatement);
+//        }
+//    }
 
-    private List<Car> initCars(ResultSet resultSet) throws SQLException {
+/*    private List<Car> initCars(ResultSet resultSet) throws SQLException {
         List<Car> carList = new ArrayList<Car>();
         while (resultSet.next()) {
             Car car = new Car();
@@ -212,5 +210,4 @@ public class CarsDAOImplI extends BaseDAOImpl<Car> implements ICarDAO {
             carList.add(car);
         }
         return carList;
-    }
-}
+    }*/

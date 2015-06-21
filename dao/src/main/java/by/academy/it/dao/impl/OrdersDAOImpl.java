@@ -10,7 +10,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class OrdersDAOImplI implements IOrderDAO {
+public class OrdersDAOImpl implements IOrderDAO {
 
     private static final String SQL_QUERY_ADD_ORDER = "INSERT INTO orders (car, customer, date_order, price, order_status) VALUES (?, ?, ?, ?, ?)";
     private static final String SQL_QUERY_GET_ALL_ORDERS = "SELECT * FROM orders";
@@ -18,7 +18,7 @@ public class OrdersDAOImplI implements IOrderDAO {
 
    /* private SimpleBasicDataSource dataSource;
 
-    public OrdersDAOImplI() {
+    public OrdersDAOImpl() {
         dataSource = SimpleBasicDataSource.getInstance();
     }
 
