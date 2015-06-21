@@ -1,4 +1,4 @@
-package by.academy.it.service;
+package by.academy.it.service.impl;
 
 import by.academy.it.dao.IUserDAO;
 import by.academy.it.dao.impl.UserDAOImpl;

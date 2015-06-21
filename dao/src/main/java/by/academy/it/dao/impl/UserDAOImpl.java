@@ -2,8 +2,6 @@ package by.academy.it.dao.impl;
 
 import by.academy.it.dao.IUserDAO;
 import by.academy.it.pojo.User;
-import by.academy.it.pool.SimpleBasicDataSource;
-import by.academy.it.utils.UtilsDB;
 import org.apache.log4j.Logger;
 
 import java.sql.Connection;
@@ -20,7 +18,7 @@ public class UserDAOImpl implements IUserDAO {
     private static final String SQL_QUERY_GET_USER_BY_ID = "SELECT * FROM users WHERE id_user = ?";
     private static final String SQL_QUERY_GET_USER_BY_EMAIL = "SELECT * FROM users WHERE email = ?";
 
-    private SimpleBasicDataSource dataSource;
+   /* private SimpleBasicDataSource dataSource;
     private Logger logger = Logger.getLogger(UserDAOImpl.class);
 
     public UserDAOImpl() {
@@ -148,7 +146,7 @@ public class UserDAOImpl implements IUserDAO {
             UtilsDB.closeDBConnection(connection, preparedStatement, resultSet);
         }
         return userList;
-    }
+    }*/
 
     private List<User> initUsers(ResultSet resultSet) throws SQLException {
         List<User> userList = new ArrayList<User>();
@@ -165,5 +163,29 @@ public class UserDAOImpl implements IUserDAO {
             userList.add(user);
         }
         return userList;
+    }
+
+    public void addUser(User user) {
+
+    }
+
+    public List<User> getUsers() {
+        return null;
+    }
+
+    public User getUserByID(Integer idUser) {
+        return null;
+    }
+
+    public User getUserByEmail(String email) {
+        return null;
+    }
+
+    public boolean loginUser(String login, String password) {
+        return false;
+    }
+
+    public boolean logoutUser() {
+        return false;
     }
 }
