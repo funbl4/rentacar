@@ -1,17 +1,21 @@
 package by.academy.it.pojo;
 
+import javax.persistence.*;
 import java.io.Serializable;
 
+@Entity
+@Table(name = "orders")
 public class Order implements Serializable {
 
     private static final long serialVersionUID = 724613482989784981L;
 
     private int idOrder;
-    private String car;
-    private String customer;
     private String date;
     private int price;
     private String orderStatus;
+
+    private String car;
+    private String customer;
 
     public Order() {
     }
@@ -24,20 +28,15 @@ public class Order implements Serializable {
         this.orderStatus = orderStatus;
     }
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id", unique = true, nullable = false)
     public int getIdOrder() {
         return idOrder;
     }
 
     public void setIdOrder(int idOrder) {
         this.idOrder = idOrder;
-    }
-
-    public String getCustomer() {
-        return customer;
-    }
-
-    public void setCustomer(String customer) {
-        this.customer = customer;
     }
 
     public String getDate() {
@@ -48,12 +47,12 @@ public class Order implements Serializable {
         this.date = date;
     }
 
-    public String getCar() {
-        return car;
+    public int getPrice() {
+        return price;
     }
 
-    public void setCar(String car) {
-        this.car = car;
+    public void setPrice(int price) {
+        this.price = price;
     }
 
     public String getOrderStatus() {
@@ -64,13 +63,24 @@ public class Order implements Serializable {
         this.orderStatus = orderStatus;
     }
 
-    public int getPrice() {
-        return price;
+    public String getCar() {
+        return car;
     }
 
-    public void setPrice(int price) {
-        this.price = price;
+    public void setCar(String car) {
+        this.car = car;
     }
+
+    public String getCustomer() {
+        return customer;
+    }
+
+    public void setCustomer(String customer) {
+        this.customer = customer;
+    }
+
+
+
 
     @Override
     public String toString() {

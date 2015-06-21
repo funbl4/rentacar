@@ -2,8 +2,6 @@ package by.academy.it.dao.impl;
 
 import by.academy.it.dao.IOrderDAO;
 import by.academy.it.pojo.Order;
-import by.academy.it.pool.SimpleBasicDataSource;
-import by.academy.it.utils.UtilsDB;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -18,7 +16,7 @@ public class OrdersDAOImplI implements IOrderDAO {
     private static final String SQL_QUERY_GET_ALL_ORDERS = "SELECT * FROM orders";
     private static final String SQL_QUERY_GET_ORDERS_BY_USER = "SELECT id_order, brand, customer, date_order, order_status, orders.price FROM orders, cars WHERE orders.car = cars.id_car AND customer = ?";
 
-    private SimpleBasicDataSource dataSource;
+   /* private SimpleBasicDataSource dataSource;
 
     public OrdersDAOImplI() {
         dataSource = SimpleBasicDataSource.getInstance();
@@ -78,7 +76,7 @@ public class OrdersDAOImplI implements IOrderDAO {
             } finally {
                 UtilsDB.closeDBConnection(connection, preparedStatement);
             }
-    }
+    }*/
 
     private List<Order> initOrders(ResultSet resultSet) throws SQLException {
         List<Order> orderList = new ArrayList<Order>();
@@ -93,5 +91,17 @@ public class OrdersDAOImplI implements IOrderDAO {
             orderList.add(order);
         }
         return orderList;
+    }
+
+    public void addOrder(Order order) {
+
+    }
+
+    public List<Order> getOrders() {
+        return null;
+    }
+
+    public List<Order> getOrdersByUser(Integer idUser) {
+        return null;
     }
 }

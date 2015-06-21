@@ -2,7 +2,7 @@ package by.academy.it.navigation;
 
 import by.academy.it.pojo.Order;
 import by.academy.it.navigation.commands.Command;
-import by.academy.it.service.OrderService;
+import by.academy.it.service.impl.OrderService;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;

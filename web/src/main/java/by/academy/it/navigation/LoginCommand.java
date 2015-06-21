@@ -1,9 +1,8 @@
 package by.academy.it.navigation;
 
-import by.academy.it.pojo.Role;
 import by.academy.it.pojo.User;
 import by.academy.it.navigation.commands.Command;
-import by.academy.it.service.UserService;
+import by.academy.it.service.impl.UserService;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
