@@ -10,8 +10,8 @@ public class Car implements Serializable {
     private static final long serialVersionUID = 6125174013568659323L;
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "id_car")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id_car", unique = true, nullable = false)
     private int idCar;
     @Column(name = "brand")
     private String brand;
@@ -23,9 +23,6 @@ public class Car implements Serializable {
     private String color;
     @Column(name = "fuel_type")
     private String fuelType;
-    /*@OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "body_style")
-    private BodyStyle bodyStyle;*/
     @Column(name = "price")
     private int price;
     @Column(name = "description")
@@ -33,37 +30,24 @@ public class Car implements Serializable {
     @Column(name = "photo")
     private String photo;
 
-    @OneToOne(mappedBy = "car", cascade = CascadeType.ALL)
+    @ManyToOne
+    @JoinColumn(name = "id_body_style")
     private BodyStyle bodyStyle;
 
 
     public Car() {
     }
-/*
-    public Car(String brand, String model, String year, String color, String fuelType, String bodyStyle, int price, String description, String photo) {
+
+    public Car(String brand, String model, String year, String color, String fuelType, int price, String description, String photo) {
         this.brand = brand;
         this.model = model;
         this.year = year;
         this.color = color;
         this.fuelType = fuelType;
-        this.bodyStyle = bodyStyle;
         this.price = price;
         this.description = description;
         this.photo = photo;
     }
-
-    public Car(int idCar, String brand, String model, String year, String color, String fuelType, String bodyStyle, int price, String description, String photo) {
-        this.idCar = idCar;
-        this.brand = brand;
-        this.model = model;
-        this.year = year;
-        this.color = color;
-        this.fuelType = fuelType;
-        this.bodyStyle = bodyStyle;
-        this.price = price;
-        this.description = description;
-        this.photo = photo;
-    }*/
 
     public int getIdCar() {
         return idCar;
@@ -113,14 +97,6 @@ public class Car implements Serializable {
         this.fuelType = fuelType;
     }
 
-/*    public String getBodyStyle() {
-        return bodyStyle;
-    }
-
-    public void setBodyStyle(String bodyStyle) {
-        this.bodyStyle = bodyStyle;
-    }*/
-
     public int getPrice() {
         return price;
     }
@@ -143,6 +119,14 @@ public class Car implements Serializable {
 
     public void setPhoto(String photo) {
         this.photo = photo;
+    }
+
+    public BodyStyle getBodyStyle() {
+        return bodyStyle;
+    }
+
+    public void setBodyStyle(BodyStyle bodyStyle) {
+        this.bodyStyle = bodyStyle;
     }
 
     @Override
