@@ -1,8 +1,6 @@
 package by.academy.it.navigation;
 
-import by.academy.it.pojo.User;
 import by.academy.it.navigation.commands.Command;
-import by.academy.it.service.UserService;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;

@@ -5,7 +5,8 @@ import by.academy.it.dao.exceptions.DaoException;
 import java.io.Serializable;
 import java.util.List;
 
-public interface IDAO<T> {
+public interface Dao<T> {
+
     void saveOrUpdate(T t) throws DaoException;
 
     T get(Serializable id) throws DaoException;
@@ -15,4 +16,5 @@ public interface IDAO<T> {
     T load(Serializable id) throws DaoException;
 
     void delete(T t) throws DaoException;
+
 }
