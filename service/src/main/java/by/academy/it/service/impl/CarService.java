@@ -1,9 +1,7 @@
 package by.academy.it.service.impl;
 
-import by.academy.it.dao.ICarDao;
+import by.academy.it.dao.ICarDAO;
 import by.academy.it.dao.exceptions.DaoException;
-import by.academy.it.dao.impl.CarDao;
-import by.academy.it.pojo.BodyStyle;
 import by.academy.it.pojo.Car;
 import by.academy.it.service.ICarService;
 import org.apache.log4j.Logger;
@@ -21,7 +19,7 @@ public class CarService implements ICarService{
     private static Logger log = Logger.getLogger(CarService.class);
 
     @Autowired
-    private ICarDao carDAO;
+    private ICarDAO carDAO;
 
     @Transactional(readOnly = false, propagation = Propagation.REQUIRED)
     public void addCar(Car car) {
