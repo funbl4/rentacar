@@ -1,3 +1,4 @@
+/*
 package by.academy.it.navigation;
 
 import by.academy.it.constants.Constants;
@@ -25,3 +26,4 @@ public class PaymentCommand implements Command {
         return Constants.PAGE_AUTO_SWITCH;
     }
 }
+*/

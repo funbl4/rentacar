@@ -1,3 +1,4 @@
+/*
 package by.academy.it.controller;
 
 import by.academy.it.navigation.CommandFactory;
@@ -37,3 +38,4 @@ public class Controller extends HttpServlet {
         }
     }
 }
+*/

@@ -1,10 +1,8 @@
-package by.academy.it.main;
+package by.academy.it.service;
 
 import by.academy.it.pojo.BodyStyle;
-import by.academy.it.pojo.Car;
 import by.academy.it.service.IBodyStyleService;
 import by.academy.it.service.impl.BodyStyleService;
-import by.academy.it.service.impl.CarService;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 

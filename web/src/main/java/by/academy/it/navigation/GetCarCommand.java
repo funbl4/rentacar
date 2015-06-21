@@ -1,3 +1,4 @@
+/*
 package by.academy.it.navigation;
 
 import by.academy.it.pojo.Car;
@@ -18,3 +19,4 @@ public class GetCarCommand implements Command {
         return PAGE_GET_CAR;
     }
 }
+*/

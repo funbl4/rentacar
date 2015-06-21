@@ -1,3 +1,4 @@
+/*
 package by.academy.it.navigation;
 
 import by.academy.it.pojo.Car;
@@ -30,8 +31,10 @@ public class ListCarsCommand implements Command {
             } else if (userRole.equals(ADMIN.toString().toUpperCase())) {
                 RequestDispatcher requestDispatcher = request.getRequestDispatcher(PAGE_ADMIN_LIST_CARS);
                 requestDispatcher.forward(request, response);
-               /* RequestDispatcher requestDispatcher = request.getRequestDispatcher("/pages/admin/edit_list_cars.jsp");
-                requestDispatcher.forward(request, response)*/;
+               */
+/* RequestDispatcher requestDispatcher = request.getRequestDispatcher("/pages/admin/edit_list_cars.jsp");
+                requestDispatcher.forward(request, response)*//*
+;
                 return PAGE_ADMIN_LIST_CARS;
             }
         }catch (NullPointerException e){
@@ -40,3 +43,4 @@ public class ListCarsCommand implements Command {
         return PAGE_LIST_CARS;
     }
 }
+*/

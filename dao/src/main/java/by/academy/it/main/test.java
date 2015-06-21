@@ -1,7 +1,13 @@
 package by.academy.it.main;
 
-public class test {
+import by.academy.it.dao.IBodyStyleDao;
+import by.academy.it.dao.exceptions.DaoException;
+import by.academy.it.dao.impl.BodyStyleDao;
+import by.academy.it.pojo.BodyStyle;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 
+public class test {
     public static void main(String[] args) {
        /* ApplicationContext context = new ClassPathXmlApplicationContext("spring-context.xml");
         IBodyStyleDao bodyStyleDao = new BodyStyleDao();
@@ -10,8 +16,8 @@ public class test {
             bodyStyleDao.saveOrUpdate(bodyStyle);
         } catch (DaoException e) {
             e.printStackTrace();
-        }*/
-/*        ICarDAO carDao = new CarDAO();
+        }
+//        ICarDAO carDao = new CarDAO();
         Car car = new Car();
         car.setBrand("BMW");
         car.setModel("318");
@@ -25,8 +31,19 @@ public class test {
             carDao.saveOrUpdate(car);
         } catch (DaoException e) {
             e.printStackTrace();
-        }*/
+        }
 
+    }*/
+
+
+        ApplicationContext context = new ClassPathXmlApplicationContext("spring-context.xml");
+        IBodyStyleDao bodyStyleDao = new BodyStyleDao();
+        BodyStyle bodyStyle = new BodyStyle("Sedan");
+        try {
+            bodyStyleDao.saveOrUpdate(bodyStyle);
+        } catch (DaoException e) {
+            e.printStackTrace();
+        }
     }
 
 }

@@ -1,3 +1,4 @@
+/*
 package by.academy.it.navigation;
 
 import by.academy.it.constants.Constants;
@@ -19,3 +20,4 @@ public class LogoutCommand implements Command {
         return Constants.PAGE_INDEX;
     }
 }
+*/

@@ -21,14 +21,18 @@ public class BaseDao<T> implements Dao<T> {
 
     private static Logger log = Logger.getLogger(BaseDao.class);
 
-    protected SessionFactory sessionFactory;
-
     @Autowired
-    public BaseDao(SessionFactory sessionFactory) {
-        this.sessionFactory = sessionFactory;
+    SessionFactory sessionFactory;
+
+    public SessionFactory getSessionFactory() {
+        return sessionFactory;
     }
 
-    private Session getCurrentSession() {
+    public void setSessionFactory(SessionFactory pSessionFactory) {
+        sessionFactory = pSessionFactory;
+    }
+
+    public Session getCurrentSession() {
         return sessionFactory.getCurrentSession();
     }
 

@@ -1,3 +1,4 @@
+/*
 package by.academy.it.navigation;
 
 import by.academy.it.pojo.User;
@@ -19,3 +20,4 @@ public class ListUsersCommand implements Command {
         return PAGE_LIST_USERS;
     }
 }
+*/

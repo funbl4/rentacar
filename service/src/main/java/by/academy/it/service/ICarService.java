@@ -1,5 +1,6 @@
 package by.academy.it.service;
 
+import by.academy.it.pojo.BodyStyle;
 import by.academy.it.pojo.Car;
 
 import java.util.List;

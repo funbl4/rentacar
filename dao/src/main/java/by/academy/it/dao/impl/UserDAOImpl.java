@@ -3,6 +3,7 @@ package by.academy.it.dao.impl;
 import by.academy.it.dao.IUserDAO;
 import by.academy.it.pojo.User;
 import org.apache.log4j.Logger;
+import org.springframework.stereotype.Repository;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -10,7 +11,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-
+@Repository
 public class UserDAOImpl implements IUserDAO {
 
     private static final String SQL_QUERY_ADD_USER = "INSERT INTO users (email, password, user_role, first_name, last_name, passport, phone_number) VALUES (?, ?, ?, ?, ?, ?, ?)";

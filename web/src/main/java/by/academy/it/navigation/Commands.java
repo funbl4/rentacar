@@ -1,3 +1,4 @@
+/*
 package by.academy.it.navigation;
 
 import by.academy.it.navigation.commands.Command;
@@ -114,3 +115,4 @@ public enum Commands {
 
     public abstract Command getCommand();
 }
+*/

@@ -1,3 +1,4 @@
+/*
 package by.academy.it.navigation;
 
 import by.academy.it.constants.Constants;
@@ -21,3 +22,4 @@ public class AddCarCommand implements Command {
         return PAGE_ADD_CAR;
     }
 }
+*/

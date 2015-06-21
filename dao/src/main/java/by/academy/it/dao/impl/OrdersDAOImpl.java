@@ -2,6 +2,7 @@ package by.academy.it.dao.impl;
 
 import by.academy.it.dao.IOrderDAO;
 import by.academy.it.pojo.Order;
+import org.springframework.stereotype.Repository;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -9,7 +10,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-
+@Repository
 public class OrdersDAOImpl implements IOrderDAO {
 
     private static final String SQL_QUERY_ADD_ORDER = "INSERT INTO orders (car, customer, date_order, price, order_status) VALUES (?, ?, ?, ?, ?)";

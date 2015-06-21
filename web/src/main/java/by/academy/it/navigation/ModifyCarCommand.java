@@ -1,3 +1,4 @@
+/*
 package by.academy.it.navigation;
 
 import by.academy.it.pojo.BodyStyle;
@@ -23,3 +24,4 @@ public class ModifyCarCommand implements Command {
         return PAGE_MODIFY_CAR;
     }
 }
+*/

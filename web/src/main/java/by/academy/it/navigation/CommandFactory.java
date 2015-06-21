@@ -1,3 +1,4 @@
+/*
 package by.academy.it.navigation;
 
 import by.academy.it.navigation.commands.Command;
@@ -10,3 +11,4 @@ public class CommandFactory {
     }
 
 }
+*/

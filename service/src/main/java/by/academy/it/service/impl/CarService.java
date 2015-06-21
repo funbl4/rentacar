@@ -1,6 +1,6 @@
 package by.academy.it.service.impl;
 
-import by.academy.it.dao.ICarDAO;
+import by.academy.it.dao.ICarDao;
 import by.academy.it.dao.exceptions.DaoException;
 import by.academy.it.pojo.Car;
 import by.academy.it.service.ICarService;
@@ -14,12 +14,12 @@ import java.util.Collections;
 import java.util.List;
 
 @Service
-public class CarService implements ICarService{
+public class CarService implements ICarService {
 
     private static Logger log = Logger.getLogger(CarService.class);
 
     @Autowired
-    private ICarDAO carDAO;
+    private ICarDao carDAO;
 
     @Transactional(readOnly = false, propagation = Propagation.REQUIRED)
     public void addCar(Car car) {
