@@ -4,8 +4,10 @@ import by.academy.it.dao.IBodyStyleDao;
 import by.academy.it.dao.exceptions.DaoException;
 import by.academy.it.pojo.BodyStyle;
 import by.academy.it.pojo.FuelType;
+import by.academy.it.pojo.User;
 import by.academy.it.service.IBodyStyleService;
 import by.academy.it.service.IFuelTypeService;
+import by.academy.it.service.IUserService;
 import by.academy.it.service.impl.BodyStyleService;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
@@ -20,6 +22,8 @@ public class Test {
         ApplicationContext context = new ClassPathXmlApplicationContext("spring-context.xml");
         IBodyStyleService bodyStyleService = (IBodyStyleService) context.getBean("bodyStyleService");
         IFuelTypeService fuelTypeService = (IFuelTypeService) context.getBean("fuelTypeService");
+        IUserService userService = (IUserService) context.getBean("userService");
+/*
         FuelType fuelType = new FuelType("Diesel");
         FuelType fuelType1 = new FuelType("Shlyapa!!!!!");
         fuelTypeService.addFuelType(fuelType);
@@ -27,6 +31,6 @@ public class Test {
         System.out.println(fuelTypeService.getFuelTypeById(2));
         System.out.println(fuelTypeService.getListFuelType());
         fuelTypeService.removeFuelType(fuelType1);
-        System.out.println(fuelTypeService.getListFuelType());
+        System.out.println(fuelTypeService.getListFuelType());*/
     }
 }

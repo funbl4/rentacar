@@ -2,22 +2,18 @@ package by.academy.it.dao.impl;
 
 import by.academy.it.dao.IUserDAO;
 import by.academy.it.pojo.User;
-import org.apache.log4j.Logger;
 import org.springframework.stereotype.Repository;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.List;
 @Repository
-public class UserDAOImpl implements IUserDAO {
+public class UserDAOImpl extends BaseDao<User> implements IUserDAO {
+}
+/*
 
     private static final String SQL_QUERY_ADD_USER = "INSERT INTO users (email, password, user_role, first_name, last_name, passport, phone_number) VALUES (?, ?, ?, ?, ?, ?, ?)";
     private static final String SQL_QUERY_GET_ALL_USERS = "SELECT * FROM users";
     private static final String SQL_QUERY_GET_USER_BY_ID = "SELECT * FROM users WHERE id_user = ?";
     private static final String SQL_QUERY_GET_USER_BY_EMAIL = "SELECT * FROM users WHERE email = ?";
+*/
 
    /* private SimpleBasicDataSource dataSource;
     private Logger logger = Logger.getLogger(UserDAOImpl.class);
@@ -149,44 +145,4 @@ public class UserDAOImpl implements IUserDAO {
         return userList;
     }*/
 
-    private List<User> initUsers(ResultSet resultSet) throws SQLException {
-        List<User> userList = new ArrayList<User>();
-        while (resultSet.next()) {
-            User user = new User();
-            user.setIdUser(resultSet.getInt(1));
-            user.setEmail(resultSet.getString(2));
-            user.setPassword(resultSet.getString(3));
-            user.setRole(resultSet.getString(4));
-            user.setFirstName(resultSet.getString(5));
-            user.setLastName(resultSet.getString(6));
-            user.setPassport(resultSet.getString(7));
-            user.setPhoneNumber(resultSet.getString(8));
-            userList.add(user);
-        }
-        return userList;
-    }
 
-    public void addUser(User user) {
-
-    }
-
-    public List<User> getUsers() {
-        return null;
-    }
-
-    public User getUserByID(Integer idUser) {
-        return null;
-    }
-
-    public User getUserByEmail(String email) {
-        return null;
-    }
-
-    public boolean loginUser(String login, String password) {
-        return false;
-    }
-
-    public boolean logoutUser() {
-        return false;
-    }
-}

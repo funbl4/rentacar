@@ -1,4 +1,4 @@
-package by.academy.it.navigation;
+/*package by.academy.it.navigation;
 
 import by.academy.it.constants.Constants;
 import by.academy.it.pojo.User;
@@ -23,4 +23,4 @@ public class SaveUserCommand implements Command {
         userService.addUser(user);
         return Constants.PAGE_INDEX;
     }
-}
+}*/

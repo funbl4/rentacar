@@ -1,3 +1,4 @@
+/*
 package by.academy.it.navigation;
 
 import by.academy.it.pojo.User;
@@ -25,3 +26,4 @@ public class RegistrationCommand implements Command {
         return PAGE_AUTO_SWITCH;
     }
 }
+*/

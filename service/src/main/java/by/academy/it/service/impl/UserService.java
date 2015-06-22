@@ -1,37 +1,61 @@
 package by.academy.it.service.impl;
 
 import by.academy.it.dao.IUserDAO;
-import by.academy.it.dao.impl.UserDAOImpl;
+import by.academy.it.dao.exceptions.DaoException;
 import by.academy.it.pojo.User;
+import by.academy.it.service.IUserService;
+import org.apache.log4j.Logger;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Transactional;
 
+import java.io.Serializable;
 import java.util.List;
 
-public class UserService {
+@Service
+public class UserService implements IUserService{
 
-    private IUserDAO IUserDAO;
+    private static final Logger log = Logger.getLogger(UserService.class);
 
-    public UserService() {
-        IUserDAO = new UserDAOImpl();
-    }
+    @Autowired
+    IUserDAO userDAO;
 
+    @Transactional(readOnly = false, propagation = Propagation.REQUIRED)
     public void addUser(User user) {
-        IUserDAO.addUser(user);
+        try {
+            userDAO.saveOrUpdate(user);
+        } catch (DaoException e) {
+            e.printStackTrace();
+        }
     }
 
-    public List<User> getUsers() {
-        return IUserDAO.getUsers();
+    @Transactional(readOnly = false, propagation = Propagation.REQUIRED)
+    public void removeUser(User user) {
+        try {
+            userDAO.delete(user);
+        } catch (DaoException e) {
+            e.printStackTrace();
+        }
     }
 
-    public User getUserByID(int idUser){
-        return IUserDAO.getUserByID(idUser);
+    @Transactional(readOnly = true, propagation = Propagation.REQUIRED)
+    public User getUserById(Serializable id) {
+        try {
+            return userDAO.get(id);
+        } catch (DaoException e) {
+            e.printStackTrace();
+            return null;
+        }
     }
 
-    public User getUserByEmail(String email){
-        return IUserDAO.getUserByEmail(email);
-    }
-
-    public boolean loginUser(String login, String password) {
-        return IUserDAO.loginUser(login, password);
+    @Transactional(readOnly = true, propagation = Propagation.REQUIRED)
+    public List<User> getListUser() {
+        try {
+            return userDAO.getAll();
+        } catch (DaoException e) {
+            e.printStackTrace();
+            return null;
+        }
     }
 }
-
