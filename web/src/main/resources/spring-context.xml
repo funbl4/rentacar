@@ -24,8 +24,6 @@
         <property name="sessionFactory" ref="sessionFactory"/>
     </bean>
 
-
-
        <bean class="org.springframework.dao.annotation.PersistenceExceptionTranslationPostProcessor"/>
 
        <bean id="propertyConfigurer" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
@@ -36,7 +34,7 @@
               <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
               <property name="url" value="jdbc:mysql://localhost:3306/rentacar"/>
               <property name="username" value="root"/>
-              <property name="password" value="admin123"/>
+              <property name="password" value="admin"/>
               <property name="initialSize" value="10"/>
               <property name="maxActive" value="15"/>
        </bean>

@@ -2,9 +2,17 @@ package by.academy.it.service;
 
 import by.academy.it.pojo.BodyStyle;
 
-/**
- * Created by Markovich on 21.06.2015.
- */
+import java.io.Serializable;
+import java.util.List;
+
 public interface IBodyStyleService {
+
     void addBodyStyle(BodyStyle bodyStyle);
+
+    void removeBodyStyle (BodyStyle bodyStyle);
+
+    BodyStyle getBodyStyleById(Serializable id);
+
+    List<BodyStyle> getListBodyStyle();
+
 }

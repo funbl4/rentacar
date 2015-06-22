@@ -21,8 +21,6 @@ public class Car implements Serializable {
     private String year;
     @Column(name = "color")
     private String color;
-    @Column(name = "fuel_type")
-    private String fuelType;
     @Column(name = "price")
     private int price;
     @Column(name = "description")
@@ -31,22 +29,26 @@ public class Car implements Serializable {
     private String photo;
 
     @ManyToOne
+    @JoinColumn(name = "id_fuel_type")
+    private FuelType fuelType;
+
+    @ManyToOne
     @JoinColumn(name = "id_body_style")
     private BodyStyle bodyStyle;
-
 
     public Car() {
     }
 
-    public Car(String brand, String model, String year, String color, String fuelType, int price, String description, String photo) {
+    public Car(String brand, String model, String year, String color, int price, String description, String photo, FuelType fuelType, BodyStyle bodyStyle) {
         this.brand = brand;
         this.model = model;
         this.year = year;
         this.color = color;
-        this.fuelType = fuelType;
         this.price = price;
         this.description = description;
         this.photo = photo;
+        this.fuelType = fuelType;
+        this.bodyStyle = bodyStyle;
     }
 
     public int getIdCar() {
@@ -89,11 +91,11 @@ public class Car implements Serializable {
         this.color = color;
     }
 
-    public String getFuelType() {
+    public FuelType getFuelType() {
         return fuelType;
     }
 
-    public void setFuelType(String fuelType) {
+    public void setFuelType(FuelType fuelType) {
         this.fuelType = fuelType;
     }
 
@@ -136,31 +138,30 @@ public class Car implements Serializable {
 
         Car car = (Car) o;
 
-        if (idCar != car.idCar) return false;
-        if (price != car.price) return false;
-        if (brand != null ? !brand.equals(car.brand) : car.brand != null) return false;
-        if (model != null ? !model.equals(car.model) : car.model != null) return false;
-        if (year != null ? !year.equals(car.year) : car.year != null) return false;
-        if (color != null ? !color.equals(car.color) : car.color != null) return false;
-        if (fuelType != null ? !fuelType.equals(car.fuelType) : car.fuelType != null) return false;
-        if (bodyStyle != null ? !bodyStyle.equals(car.bodyStyle) : car.bodyStyle != null) return false;
-        if (description != null ? !description.equals(car.description) : car.description != null) return false;
-        return !(photo != null ? !photo.equals(car.photo) : car.photo != null);
+        if (getPrice() != car.getPrice()) return false;
+        if (getBrand() != null ? !getBrand().equals(car.getBrand()) : car.getBrand() != null) return false;
+        if (getModel() != null ? !getModel().equals(car.getModel()) : car.getModel() != null) return false;
+        if (getYear() != null ? !getYear().equals(car.getYear()) : car.getYear() != null) return false;
+        if (getColor() != null ? !getColor().equals(car.getColor()) : car.getColor() != null) return false;
+        if (getDescription() != null ? !getDescription().equals(car.getDescription()) : car.getDescription() != null)
+            return false;
+        if (getPhoto() != null ? !getPhoto().equals(car.getPhoto()) : car.getPhoto() != null) return false;
+        if (getFuelType() != null ? !getFuelType().equals(car.getFuelType()) : car.getFuelType() != null) return false;
+        return !(getBodyStyle() != null ? !getBodyStyle().equals(car.getBodyStyle()) : car.getBodyStyle() != null);
 
     }
 
     @Override
     public int hashCode() {
-        int result = idCar;
-        result = 31 * result + (brand != null ? brand.hashCode() : 0);
-        result = 31 * result + (model != null ? model.hashCode() : 0);
-        result = 31 * result + (year != null ? year.hashCode() : 0);
-        result = 31 * result + (color != null ? color.hashCode() : 0);
-        result = 31 * result + (fuelType != null ? fuelType.hashCode() : 0);
-        result = 31 * result + (bodyStyle != null ? bodyStyle.hashCode() : 0);
-        result = 31 * result + price;
-        result = 31 * result + (description != null ? description.hashCode() : 0);
-        result = 31 * result + (photo != null ? photo.hashCode() : 0);
+        int result = getBrand() != null ? getBrand().hashCode() : 0;
+        result = 31 * result + (getModel() != null ? getModel().hashCode() : 0);
+        result = 31 * result + (getYear() != null ? getYear().hashCode() : 0);
+        result = 31 * result + (getColor() != null ? getColor().hashCode() : 0);
+        result = 31 * result + getPrice();
+        result = 31 * result + (getDescription() != null ? getDescription().hashCode() : 0);
+        result = 31 * result + (getPhoto() != null ? getPhoto().hashCode() : 0);
+        result = 31 * result + (getFuelType() != null ? getFuelType().hashCode() : 0);
+        result = 31 * result + (getBodyStyle() != null ? getBodyStyle().hashCode() : 0);
         return result;
     }
 
