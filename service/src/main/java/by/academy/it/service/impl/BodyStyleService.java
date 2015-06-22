@@ -31,7 +31,7 @@ public class BodyStyleService implements IBodyStyleService {
     }
 
     @Transactional(readOnly = true, propagation = Propagation.REQUIRED)
-    public List<BodyStyle> getListBodyStyle() {
+    public List<BodyStyle> getBodyStyles() {
         try {
             return bodyStyleDao.getAll();
         } catch (DaoException e) {

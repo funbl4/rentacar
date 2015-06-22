@@ -13,6 +13,6 @@ public interface IFuelTypeService {
 
     FuelType getFuelTypeById(Serializable id);
 
-    List<FuelType> getListFuelType();
+    List<FuelType> getFuelTypes();
 
 }

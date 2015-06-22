@@ -2,6 +2,7 @@ package by.academy.it.pojo;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.List;
 
 @Entity
 @Table(name = "users")
@@ -34,6 +35,9 @@ public class User implements Serializable {
 
     @Column(name = "role")
     private String role;
+
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "user", cascade = CascadeType.ALL)
+    public List<Order> orderList;
 
     public User() {
     }

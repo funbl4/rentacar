@@ -50,7 +50,7 @@ public class FuelTypeService implements IFuelTypeService {
     }
 
     @Transactional(readOnly = true, propagation = Propagation.REQUIRED)
-    public List<FuelType> getListFuelType() {
+    public List<FuelType> getFuelTypes() {
         try {
             return fuelTypeDao.getAll();
         } catch (DaoException e) {

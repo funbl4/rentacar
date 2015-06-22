@@ -9,28 +9,34 @@ public class Order implements Serializable {
 
     private static final long serialVersionUID = 724613482989784981L;
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id_order", unique = true, nullable = false)
     private int idOrder;
-    private String date;
-    private int price;
+
+    @Column(name = "order_date")
+    private String orderDate;
+
+    @Column(name = "order_status")
     private String orderStatus;
 
+    @Column(name = "car")
     private String car;
-    private String customer;
+
+    @ManyToOne
+    @JoinColumn(name = "id_user")
+    private User user;
 
     public Order() {
     }
 
-    public Order(String car, String customer, String date, int price, String orderStatus) {
-        this.car = car;
-        this.customer = customer;
-        this.date = date;
-        this.price = price;
+    public Order(String orderDate, String orderStatus, String car, User user) {
+        this.orderDate = orderDate;
         this.orderStatus = orderStatus;
+        this.car = car;
+        this.user = user;
     }
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id", unique = true, nullable = false)
     public int getIdOrder() {
         return idOrder;
     }
@@ -39,20 +45,12 @@ public class Order implements Serializable {
         this.idOrder = idOrder;
     }
 
-    public String getDate() {
-        return date;
+    public String getOrderDate() {
+        return orderDate;
     }
 
-    public void setDate(String date) {
-        this.date = date;
-    }
-
-    public int getPrice() {
-        return price;
-    }
-
-    public void setPrice(int price) {
-        this.price = price;
+    public void setOrderDate(String orderDate) {
+        this.orderDate = orderDate;
     }
 
     public String getOrderStatus() {
@@ -71,26 +69,47 @@ public class Order implements Serializable {
         this.car = car;
     }
 
-    public String getCustomer() {
-        return customer;
+    public User getUser() {
+        return user;
     }
 
-    public void setCustomer(String customer) {
-        this.customer = customer;
+    public void setUser(User user) {
+        this.user = user;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
 
+        Order order = (Order) o;
 
+        if (getOrderDate() != null ? !getOrderDate().equals(order.getOrderDate()) : order.getOrderDate() != null)
+            return false;
+        if (getOrderStatus() != null ? !getOrderStatus().equals(order.getOrderStatus()) : order.getOrderStatus() != null)
+            return false;
+        if (getCar() != null ? !getCar().equals(order.getCar()) : order.getCar() != null) return false;
+        return !(getUser() != null ? !getUser().equals(order.getUser()) : order.getUser() != null);
+
+    }
+
+    @Override
+    public int hashCode() {
+        int result = getOrderDate() != null ? getOrderDate().hashCode() : 0;
+        result = 31 * result + (getOrderStatus() != null ? getOrderStatus().hashCode() : 0);
+        result = 31 * result + (getCar() != null ? getCar().hashCode() : 0);
+        result = 31 * result + (getUser() != null ? getUser().hashCode() : 0);
+        return result;
+    }
 
     @Override
     public String toString() {
         return "Order{" +
                 "idOrder=" + idOrder +
-                ", customer=" + customer +
-                ", date='" + date + '\'' +
-                ", car=" + car +
+                ", orderDate='" + orderDate + '\'' +
                 ", orderStatus='" + orderStatus + '\'' +
-                ", price=" + price +
+                ", car='" + car + '\'' +
+                ", user=" + user +
                 '}';
     }
 }

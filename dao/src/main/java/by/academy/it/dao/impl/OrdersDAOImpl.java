@@ -79,7 +79,7 @@ public class OrdersDAOImpl implements IOrderDAO {
             }
     }*/
 
-    private List<Order> initOrders(ResultSet resultSet) throws SQLException {
+/*    private List<Order> initOrders(ResultSet resultSet) throws SQLException {
         List<Order> orderList = new ArrayList<Order>();
         while (resultSet.next()) {
             Order order = new Order();
@@ -92,7 +92,7 @@ public class OrdersDAOImpl implements IOrderDAO {
             orderList.add(order);
         }
         return orderList;
-    }
+    }*/
 
     public void addOrder(Order order) {
 

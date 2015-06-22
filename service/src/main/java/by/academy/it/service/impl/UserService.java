@@ -50,7 +50,7 @@ public class UserService implements IUserService{
     }
 
     @Transactional(readOnly = true, propagation = Propagation.REQUIRED)
-    public List<User> getListUser() {
+    public List<User> getUsers() {
         try {
             return userDAO.getAll();
         } catch (DaoException e) {

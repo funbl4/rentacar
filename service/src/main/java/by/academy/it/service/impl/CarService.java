@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.io.Serializable;
 import java.util.Collections;
 import java.util.List;
 
@@ -32,6 +33,25 @@ public class CarService implements ICarService {
         }
     }
 
+    @Transactional(readOnly = false, propagation = Propagation.REQUIRED)
+    public void removeCar(Car car) {
+        try {
+            carDAO.delete(car);
+        } catch (DaoException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Transactional(propagation = Propagation.REQUIRED, readOnly = true)
+    public Car getCarById(Serializable id) {
+        try {
+            return carDAO.get(id);
+        } catch (DaoException e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
     @Transactional(readOnly = true, propagation = Propagation.REQUIRED)
     public List<Car> getCars() {
         try {
@@ -43,5 +63,4 @@ public class CarService implements ICarService {
         }
         return Collections.emptyList();
     }
-
 }

@@ -13,6 +13,6 @@ public interface IBodyStyleService {
 
     BodyStyle getBodyStyleById(Serializable id);
 
-    List<BodyStyle> getListBodyStyle();
+    List<BodyStyle> getBodyStyles();
 
 }

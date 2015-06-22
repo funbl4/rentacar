@@ -13,6 +13,6 @@ public interface IUserService {
 
     User getUserById(Serializable id);
 
-    List<User> getListUser();
+    List<User> getUsers();
 
 }
