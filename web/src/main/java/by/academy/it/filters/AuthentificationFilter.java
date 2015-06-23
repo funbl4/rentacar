@@ -23,7 +23,7 @@ public class AuthentificationFilter implements Filter {
         HttpServletRequest httpRequest = (HttpServletRequest) servletRequest;
 
         HttpSession session = httpRequest.getSession();
-        // Получаем путь до страницы типа /index.jsp или /loginUser.jsp
+        // Получаем путь до страницы типа /index1111.jsp или /loginUser.jsp
         String uriPath = httpRequest.getRequestURI().substring(httpRequest.getContextPath().length());
         String val = (String)session.getAttribute("userLastName");
         if (session == null || session.getAttribute("userLastName") == null || session.getAttribute("userLastName") == ""){
