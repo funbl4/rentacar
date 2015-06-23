@@ -7,6 +7,6 @@
 </ul>
 <h2>Orders menu</h2>
 <ul>
-  <li><a href="/index1111.jsp" class="blue">Orders list</a></li>
+  <li><a href="/index111.jsp" class="blue">Orders list</a></li>
 </ul>
 <br class="spacer"/>

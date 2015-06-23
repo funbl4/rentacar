@@ -3,6 +3,7 @@ package by.academy.it.utils;
 import org.hibernate.cfg.DefaultNamingStrategy;
 
 public class CustomNamingStrategy extends DefaultNamingStrategy {
+
     public String classToTableName(String className) {
         return "T_" + super.classToTableName(className).toUpperCase();
     }
@@ -18,6 +19,7 @@ public class CustomNamingStrategy extends DefaultNamingStrategy {
     public String tableName(String tableName) {
         return tableName;
     }
+
 }
 
 

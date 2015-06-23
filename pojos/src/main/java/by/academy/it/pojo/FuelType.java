@@ -53,7 +53,6 @@ public class FuelType implements Serializable{
 
         if (getIdFuelType() != fuelType.getIdFuelType()) return false;
         return !(getNameFuelType() != null ? !getNameFuelType().equals(fuelType.getNameFuelType()) : fuelType.getNameFuelType() != null);
-
     }
 
     @Override

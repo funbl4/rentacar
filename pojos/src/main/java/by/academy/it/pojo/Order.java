@@ -2,7 +2,6 @@ package by.academy.it.pojo;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.util.List;
 
 @Entity
 @Table(name = "orders")
@@ -55,7 +54,6 @@ public class Order implements Serializable {
     public void setOrderStatus(String orderStatus) {
         this.orderStatus = orderStatus;
     }
-
 
     public User getUser() {
         return user;

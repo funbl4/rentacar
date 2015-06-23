@@ -1,7 +1,6 @@
 package by.academy.it.service;
 
 import by.academy.it.pojo.Order;
-import by.academy.it.pojo.User;
 
 import java.io.Serializable;
 import java.util.List;

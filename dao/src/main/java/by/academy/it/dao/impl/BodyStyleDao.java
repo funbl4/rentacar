@@ -6,5 +6,4 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public class BodyStyleDao extends BaseDao<BodyStyle> implements IBodyStyleDao {
-
 }

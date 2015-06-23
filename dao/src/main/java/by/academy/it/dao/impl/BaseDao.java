@@ -5,11 +5,8 @@ import by.academy.it.dao.exceptions.DaoException;
 import org.apache.log4j.Logger;
 import org.hibernate.*;
 import org.hibernate.criterion.Order;
-import org.hibernate.proxy.HibernateProxy;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
-import org.springframework.transaction.annotation.Propagation;
-import org.springframework.transaction.annotation.Transactional;
 
 import java.io.Serializable;
 import java.lang.reflect.ParameterizedType;

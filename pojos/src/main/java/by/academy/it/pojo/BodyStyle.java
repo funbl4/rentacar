@@ -10,7 +10,6 @@ public class BodyStyle implements Serializable {
 
     private static final long serialVersionUID = 7381059213568659323L;
 
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_body_style", unique = true, nullable = false)
@@ -47,7 +46,6 @@ public class BodyStyle implements Serializable {
         this.nameBodyStyle = nameBodyStyle;
     }
 
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -57,7 +55,6 @@ public class BodyStyle implements Serializable {
 
         if (idBodyStyle != bodyStyle.idBodyStyle) return false;
         return !(nameBodyStyle != null ? !nameBodyStyle.equals(bodyStyle.nameBodyStyle) : bodyStyle.nameBodyStyle != null);
-
     }
 
     @Override
