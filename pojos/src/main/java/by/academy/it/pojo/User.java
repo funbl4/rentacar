@@ -152,7 +152,7 @@ public class User implements Serializable {
                 ", lastName='" + lastName + '\'' +
                 ", passport='" + passport + '\'' +
                 ", phoneNumber='" + phoneNumber + '\'' +
-                ", role='" + role + '\'' +
+                ", role='" + role + '\n' +
                 '}';
     }
 }

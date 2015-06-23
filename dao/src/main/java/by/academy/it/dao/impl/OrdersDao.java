@@ -4,19 +4,17 @@ import by.academy.it.dao.IOrderDAO;
 import by.academy.it.pojo.Order;
 import org.springframework.stereotype.Repository;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.List;
-@Repository
-public class OrdersDAOImpl implements IOrderDAO {
 
-    private static final String SQL_QUERY_ADD_ORDER = "INSERT INTO orders (car, customer, date_order, price, order_status) VALUES (?, ?, ?, ?, ?)";
+@Repository
+public class OrdersDao extends BaseDao<Order> implements IOrderDAO {
+
+}
+
+   /* private static final String SQL_QUERY_ADD_ORDER = "INSERT INTO orders (car, customer, date_order, price, order_status) VALUES (?, ?, ?, ?, ?)";
     private static final String SQL_QUERY_GET_ALL_ORDERS = "SELECT * FROM orders";
     private static final String SQL_QUERY_GET_ORDERS_BY_USER = "SELECT id_order, brand, customer, date_order, order_status, orders.price FROM orders, cars WHERE orders.car = cars.id_car AND customer = ?";
-
+*/
    /* private SimpleBasicDataSource dataSource;
 
     public OrdersDAOImpl() {
@@ -94,15 +92,3 @@ public class OrdersDAOImpl implements IOrderDAO {
         return orderList;
     }*/
 
-    public void addOrder(Order order) {
-
-    }
-
-    public List<Order> getOrders() {
-        return null;
-    }
-
-    public List<Order> getOrdersByUser(Integer idUser) {
-        return null;
-    }
-}

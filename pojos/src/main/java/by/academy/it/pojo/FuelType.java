@@ -67,7 +67,7 @@ public class FuelType implements Serializable{
     public String toString() {
         return "FuelType{" +
                 "idFuelType=" + idFuelType +
-                ", nameFuelType='" + nameFuelType + '\'' +
+                ", nameFuelType='" + nameFuelType + '\n' +
                 '}';
     }
 }

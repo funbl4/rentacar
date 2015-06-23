@@ -2,6 +2,7 @@ package by.academy.it.pojo;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.List;
 
 @Entity
 @Table(name = "orders")
@@ -20,21 +21,15 @@ public class Order implements Serializable {
     @Column(name = "order_status")
     private String orderStatus;
 
-    @Column(name = "car")
-    private String car;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "id_car")
+    private Car car;
 
     @ManyToOne
     @JoinColumn(name = "id_user")
     private User user;
 
     public Order() {
-    }
-
-    public Order(String orderDate, String orderStatus, String car, User user) {
-        this.orderDate = orderDate;
-        this.orderStatus = orderStatus;
-        this.car = car;
-        this.user = user;
     }
 
     public int getIdOrder() {
@@ -61,13 +56,6 @@ public class Order implements Serializable {
         this.orderStatus = orderStatus;
     }
 
-    public String getCar() {
-        return car;
-    }
-
-    public void setCar(String car) {
-        this.car = car;
-    }
 
     public User getUser() {
         return user;
@@ -77,13 +65,23 @@ public class Order implements Serializable {
         this.user = user;
     }
 
+    public Car getCar() {
+        return car;
+    }
+
+    public void setCar(Car car) {
+        this.car = car;
+    }
+
     @Override
     public boolean equals(Object o) {
+
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
         Order order = (Order) o;
 
+        if (getIdOrder() != order.getIdOrder()) return false;
         if (getOrderDate() != null ? !getOrderDate().equals(order.getOrderDate()) : order.getOrderDate() != null)
             return false;
         if (getOrderStatus() != null ? !getOrderStatus().equals(order.getOrderStatus()) : order.getOrderStatus() != null)
@@ -95,7 +93,8 @@ public class Order implements Serializable {
 
     @Override
     public int hashCode() {
-        int result = getOrderDate() != null ? getOrderDate().hashCode() : 0;
+        int result = getIdOrder();
+        result = 31 * result + (getOrderDate() != null ? getOrderDate().hashCode() : 0);
         result = 31 * result + (getOrderStatus() != null ? getOrderStatus().hashCode() : 0);
         result = 31 * result + (getCar() != null ? getCar().hashCode() : 0);
         result = 31 * result + (getUser() != null ? getUser().hashCode() : 0);
@@ -108,8 +107,8 @@ public class Order implements Serializable {
                 "idOrder=" + idOrder +
                 ", orderDate='" + orderDate + '\'' +
                 ", orderStatus='" + orderStatus + '\'' +
-                ", car='" + car + '\'' +
-                ", user=" + user +
+                ", car=" + car +
+                ", user=" + user + "\n" +
                 '}';
     }
 }

@@ -5,7 +5,7 @@ import by.academy.it.pojo.User;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public class UserDAOImpl extends BaseDao<User> implements IUserDAO {
+public class UserDao extends BaseDao<User> implements IUserDAO {
 }
 /*
 

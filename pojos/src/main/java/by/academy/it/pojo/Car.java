@@ -2,6 +2,7 @@ package by.academy.it.pojo;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.List;
 
 @Entity
 @Table(name = "cars")
@@ -28,6 +29,9 @@ public class Car implements Serializable {
     @Column(name = "photo")
     private String photo;
 
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "car", cascade = CascadeType.ALL)
+    private List<Order> orderList;
+
     @ManyToOne
     @JoinColumn(name = "id_fuel_type")
     private FuelType fuelType;
@@ -37,18 +41,6 @@ public class Car implements Serializable {
     private BodyStyle bodyStyle;
 
     public Car() {
-    }
-
-    public Car(String brand, String model, String year, String color, int price, String description, String photo, FuelType fuelType, BodyStyle bodyStyle) {
-        this.brand = brand;
-        this.model = model;
-        this.year = year;
-        this.color = color;
-        this.price = price;
-        this.description = description;
-        this.photo = photo;
-        this.fuelType = fuelType;
-        this.bodyStyle = bodyStyle;
     }
 
     public int getIdCar() {
@@ -131,6 +123,14 @@ public class Car implements Serializable {
         this.bodyStyle = bodyStyle;
     }
 
+    public List<Order> getOrderList() {
+        return orderList;
+    }
+
+    public void setOrderList(List<Order> orderList) {
+        this.orderList = orderList;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -138,6 +138,7 @@ public class Car implements Serializable {
 
         Car car = (Car) o;
 
+        if (getIdCar() != car.getIdCar()) return false;
         if (getPrice() != car.getPrice()) return false;
         if (getBrand() != null ? !getBrand().equals(car.getBrand()) : car.getBrand() != null) return false;
         if (getModel() != null ? !getModel().equals(car.getModel()) : car.getModel() != null) return false;
@@ -146,6 +147,8 @@ public class Car implements Serializable {
         if (getDescription() != null ? !getDescription().equals(car.getDescription()) : car.getDescription() != null)
             return false;
         if (getPhoto() != null ? !getPhoto().equals(car.getPhoto()) : car.getPhoto() != null) return false;
+        if (getOrderList() != null ? !getOrderList().equals(car.getOrderList()) : car.getOrderList() != null)
+            return false;
         if (getFuelType() != null ? !getFuelType().equals(car.getFuelType()) : car.getFuelType() != null) return false;
         return !(getBodyStyle() != null ? !getBodyStyle().equals(car.getBodyStyle()) : car.getBodyStyle() != null);
 
@@ -153,13 +156,15 @@ public class Car implements Serializable {
 
     @Override
     public int hashCode() {
-        int result = getBrand() != null ? getBrand().hashCode() : 0;
+        int result = getIdCar();
+        result = 31 * result + (getBrand() != null ? getBrand().hashCode() : 0);
         result = 31 * result + (getModel() != null ? getModel().hashCode() : 0);
         result = 31 * result + (getYear() != null ? getYear().hashCode() : 0);
         result = 31 * result + (getColor() != null ? getColor().hashCode() : 0);
         result = 31 * result + getPrice();
         result = 31 * result + (getDescription() != null ? getDescription().hashCode() : 0);
         result = 31 * result + (getPhoto() != null ? getPhoto().hashCode() : 0);
+        result = 31 * result + (getOrderList() != null ? getOrderList().hashCode() : 0);
         result = 31 * result + (getFuelType() != null ? getFuelType().hashCode() : 0);
         result = 31 * result + (getBodyStyle() != null ? getBodyStyle().hashCode() : 0);
         return result;
@@ -173,11 +178,12 @@ public class Car implements Serializable {
                 ", model='" + model + '\'' +
                 ", year='" + year + '\'' +
                 ", color='" + color + '\'' +
-                ", fuelType='" + fuelType + '\'' +
-                ", bodyStyle='" + bodyStyle + '\'' +
                 ", price=" + price +
                 ", description='" + description + '\'' +
                 ", photo='" + photo + '\'' +
+                ", orderList=" + orderList +
+                ", fuelType=" + fuelType +
+                ", bodyStyle=" + bodyStyle + "\n" +
                 '}';
     }
 }
