@@ -16,7 +16,7 @@ import java.util.List;
 @Service
 public class OrderService implements IOrderService{
 
-    private static final Logger log = Logger.getLogger(UserService.class);
+    private static final Logger log = Logger.getLogger(OrderService.class);
 
     @Autowired
     IOrderDAO orderDAO;

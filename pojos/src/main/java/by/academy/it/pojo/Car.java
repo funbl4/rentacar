@@ -181,7 +181,6 @@ public class Car implements Serializable {
                 ", price=" + price +
                 ", description='" + description + '\'' +
                 ", photo='" + photo + '\'' +
-                ", orderList=" + orderList +
                 ", fuelType=" + fuelType +
                 ", bodyStyle=" + bodyStyle + "\n" +
                 '}';

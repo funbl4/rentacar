@@ -20,7 +20,7 @@ public class BodyStyle implements Serializable {
     private String nameBodyStyle;
 
 
-    @OneToMany(fetch = FetchType.EAGER, mappedBy = "bodyStyle", cascade = CascadeType.ALL)
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "bodyStyle", cascade = CascadeType.ALL)
     public List<Car> carList;
 
 

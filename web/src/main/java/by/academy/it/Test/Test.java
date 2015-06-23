@@ -35,15 +35,18 @@ public class Test {
         carService.addCar(car);
         System.out.println(carService.getCars());
         carService.removeCar(car);*/
+        //System.out.println(orderService.getOrderById(2));
+        //System.out.println(carService.getCarById(2));
+        System.out.println("---------------------------------------------------CARS");
         System.out.println(carService.getCars());
-        System.out.println("---------------------------------------------------");
-        //System.out.println(bodyStyleService.getBodyStyles());
-        System.out.println("---------------------------------------------------");
-        //System.out.println(fuelTypeService.getFuelTypes());
-        System.out.println("---------------------------------------------------");
-        //System.out.println(userService.getUsers());
-        System.out.println("---------------------------------------------------");
-        //System.out.println(orderService.getOrders());
+        System.out.println("---------------------------------------------------BODYSTYLES");
+        System.out.println(bodyStyleService.getBodyStyles());
+        System.out.println("---------------------------------------------------FUELTYPES");
+        System.out.println(fuelTypeService.getFuelTypes());
+        System.out.println("---------------------------------------------------USERS");
+        System.out.println(userService.getUsers());
+        System.out.println("---------------------------------------------------ORDERS");
+        System.out.println(orderService.getOrders());
 /*
         FuelType fuelType = new FuelType("Diesel");
         FuelType fuelType1 = new FuelType("Shlyapa!!!!!");

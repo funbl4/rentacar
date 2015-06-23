@@ -21,7 +21,7 @@ public class Order implements Serializable {
     @Column(name = "order_status")
     private String orderStatus;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne
     @JoinColumn(name = "id_car")
     private Car car;
 
