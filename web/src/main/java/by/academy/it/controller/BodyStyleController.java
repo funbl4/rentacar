@@ -38,6 +38,37 @@ public class BodyStyleController {
         return "auto_switch";
     }
 
+    @RequestMapping(value = "/view.do", method = RequestMethod.GET)
+    public ModelAndView viewBodyStyle(
+            @RequestParam("id_body_style") int idBodyStyle,
+            ModelAndView model) {
+        BodyStyle bodyStyle = bodyStyleService.getBodyStyleById(idBodyStyle);
+        model.addObject("current_body_style", bodyStyle);
+        model.setViewName("view_body_style");
+        return model;
+    }
+
+    @RequestMapping(value = "/pre.edit.do", method = RequestMethod.GET)
+    public ModelAndView editBodyStyle(
+            @RequestParam("id_body_style") int idBodyStyle,
+            ModelAndView model) {
+        BodyStyle bodyStyle = bodyStyleService.getBodyStyleById(idBodyStyle);
+        model.addObject("body_style", bodyStyle);
+        model.setViewName("edit_body_style");
+        return model;
+    }
+
+    @RequestMapping(value = "/save.do", method = RequestMethod.POST)
+    public String updateBodyStyle(
+            @RequestParam("id_body_style") int idBodyStyle,
+            @RequestParam("name_body_style") String nameBodyStyle,
+            ModelAndView model) {
+        BodyStyle bodyStyle = bodyStyleService.getBodyStyleById(idBodyStyle);
+        bodyStyle.setNameBodyStyle(nameBodyStyle);
+        bodyStyleService.addBodyStyle(bodyStyle);
+        return "auto_switch";
+    }
+
     @RequestMapping(value = "/list.do", method = RequestMethod.GET)
     public ModelAndView listBodyStyles() {
         List<BodyStyle> bodyStyleList = bodyStyleService.getBodyStyles();

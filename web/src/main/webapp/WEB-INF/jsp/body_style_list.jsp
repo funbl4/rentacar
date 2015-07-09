@@ -12,11 +12,15 @@
     <th>ID</th>
     <th>Name</th>
     <th></th>
+    <th></th>
+    <th></th>
   </thead>
   <c:forEach var="body_style" items="${body_styles}">
     <tr>
       <td>${body_style.idBodyStyle}</td>
       <td>${body_style.nameBodyStyle}</td>
+      <td><a href="/bodystyle/view.do?id_body_style=${body_style.idBodyStyle}">View</a></td>
+      <td><a href="/bodystyle/pre.edit.do?id_body_style=${body_style.idBodyStyle}">Edit</a></td>
       <td><a href="/bodystyle/remove.do?id_body_style=${body_style.idBodyStyle}">Remove</a></td>
     </tr>
   </c:forEach>
